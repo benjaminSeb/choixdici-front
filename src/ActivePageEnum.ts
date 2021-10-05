@@ -1,0 +1,7 @@
+export enum ActivePageEnum {
+  HOME = 'HOME',
+  AGENDA = 'AGENDA',
+  REPERTOIRE = 'REPERTOIRE',
+  REPORTAGES = 'REPORTAGES',
+  CONTACTS = 'CONTACTS',
+}

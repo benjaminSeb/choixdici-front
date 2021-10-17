@@ -1,7 +1,7 @@
 import { Button, createStyles, makeStyles, withStyles } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { ToggleButton } from '@material-ui/lab';
-import { ActivePageEnum } from './ActivePageEnum';
+import { ActivePageEnum } from 'utils/ActivePageEnum';
 
 const useStyles = makeStyles(() =>
   createStyles({

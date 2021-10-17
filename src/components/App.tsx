@@ -1,8 +1,8 @@
-import React, { ReactElement, useState } from 'react';
-import { ActivePageEnum } from './ActivePageEnum';
-import AgendaPage from './AgendaPage';
+import { ReactElement, useState } from 'react';
+import { ActivePageEnum } from 'utils/ActivePageEnum';
+import AgendaPage from './agenda/AgendaPage';
 import Footer from './Footer';
-import HomePage from './HomePage';
+import HomePage from './home/HomePage';
 import MenuBar from './MenuBar';
 
 function App() {

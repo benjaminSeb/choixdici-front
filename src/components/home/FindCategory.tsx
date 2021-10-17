@@ -1,6 +1,5 @@
 import { Button, createStyles, makeStyles, withStyles } from '@material-ui/core';
-import React from 'react';
-import { getCategories } from './Category';
+import { getCategories } from 'utils/Category';
 
 const useStyles = makeStyles(() =>
   createStyles({

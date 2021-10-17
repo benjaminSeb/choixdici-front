@@ -1,9 +1,9 @@
 import { Button, createStyles, makeStyles, Paper, withStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import EventDay from './EventDay';
-import { getEventsOfDay, IEvent } from './EventUtil';
+import { getEventsOfDay, IEvent } from 'utils/EventUtil';
 import WeeklyEvent from './WeeklyEvent';
 
 const useStyles = makeStyles(() =>

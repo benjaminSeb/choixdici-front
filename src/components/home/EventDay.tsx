@@ -1,6 +1,5 @@
 import { Typography } from '@material-ui/core';
-import React from 'react';
-import { IEvent } from './EventUtil';
+import { IEvent } from 'utils/EventUtil';
 
 interface IEventDayProps {
   event: IEvent;

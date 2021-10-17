@@ -1,7 +1,6 @@
-import React from 'react';
 import CalendarEvent from './CalendarEvent';
 import Edito from './Edito';
-import { ActivePageEnum } from './ActivePageEnum';
+import { ActivePageEnum } from 'utils/ActivePageEnum';
 import FindCategory from './FindCategory';
 
 interface IHomePageProps {

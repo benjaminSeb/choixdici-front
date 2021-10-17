@@ -1,8 +1,7 @@
 import { Card, CardContent, CardMedia, createStyles, makeStyles, Typography, withStyles } from '@material-ui/core';
-import React from 'react';
-import { ActivePageEnum } from './ActivePageEnum';
-import { getEventsOfDay, IEvent } from './EventUtil';
-import test from './images/test.png';
+import { ActivePageEnum } from 'utils/ActivePageEnum';
+import { getEventsOfDay, IEvent } from 'utils/EventUtil';
+import test from "images/test.png";
 
 interface IAgendaPageProps {
   pageProps: {

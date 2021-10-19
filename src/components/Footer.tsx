@@ -1,54 +1,41 @@
-import { Button, createStyles, makeStyles, Typography, withStyles } from '@material-ui/core';
+import { Button, Typography } from "@mui/material";
+import { styled } from "@mui/system";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    footer: {
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      width: '100%',
-      backgroundColor: '#53BE4F',
-    },
-    menu: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    home: {
-      display: 'flex',
-      justifyContent: 'center',
-    }
-  }),
-);
+const FooterDiv = styled("div")({
+	display: "flex",
+	justifyContent: "space-around",
+	alignItems: "center",
+	width: "100%",
+	backgroundColor: "#53BE4F",
+});
 
-const HomeButton = withStyles({
-  root: {
-    fontFamily: 'Poppins, Sans-serif',
-    fontSize: '25px',
-    fontWeight: 'bold',
-    textTransform: 'none',
-    '&:hover': {
-      backgroundColor: 'white',
-    }
-  },
-})(Button);
+const HomeDiv = styled("div")({
+	display: "flex",
+	justifyContent: "center",
+});
+
+const HomeButton = styled(Button)({
+	fontFamily: "Poppins, Sans-serif",
+	fontSize: "25px",
+	fontWeight: "bold",
+	textTransform: "none",
+	"&:hover": {
+		backgroundColor: "white",
+	},
+});
 
 function Footer() {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.footer}>
-      <div className={classes.home}>
-        <HomeButton>
-          <Typography>choix </Typography>
-          <Typography>d'ici</Typography>
-        </HomeButton>
-        <Typography>REPERTOIRE DES INITIATIVES LOCALES</Typography>
-      </div>
-      <div className={classes.menu}>
-      </div>
-    </div>
-  );
+	return (
+		<FooterDiv>
+			<HomeDiv>
+				<HomeButton>
+					<Typography>choix </Typography>
+					<Typography>d'ici</Typography>
+				</HomeButton>
+				<Typography>REPERTOIRE DES INITIATIVES LOCALES</Typography>
+			</HomeDiv>
+		</FooterDiv>
+	);
 }
 
 export default Footer;

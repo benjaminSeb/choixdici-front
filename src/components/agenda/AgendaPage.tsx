@@ -1,56 +1,54 @@
-import { Card, CardContent, CardMedia, createStyles, makeStyles, Typography, withStyles } from '@material-ui/core';
-import { ActivePageEnum } from 'utils/ActivePageEnum';
-import { getEventsOfDay, IEvent } from 'utils/EventUtil';
+import { Card, CardContent, CardMedia, Fab, Typography } from "@mui/material";
+import { ActivePageEnum } from "utils/ActivePageEnum";
+import { getEventsOfDay, IEvent } from "utils/EventUtil";
 import test from "images/test.png";
+import { styled } from "@mui/system";
 
 interface IAgendaPageProps {
-  pageProps: {
-    setActivePage: (param: ActivePageEnum) => void;
-  };
+	pageProps: {
+		setActivePage: (param: ActivePageEnum) => void;
+	};
 }
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    agenda: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-    },
-  }),
-);
+const AgendaDiv = styled("div")({
+	display: "flex",
+	flexWrap: "wrap",
+	justifyContent: "center",
+});
 
-const AgendaEventCard = withStyles({
-  root: {
-    width: '10em',
-    margin: '1%',
-    border: '2em',
-  }
-})(Card);
+const AgendaEventCard = styled(Card)({
+	width: "10em",
+	margin: "1%",
+	border: "2em",
+});
 
 function AgendaPage(props: IAgendaPageProps) {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.agenda}>
-      {getEventsOfDay().map((thatEvent: IEvent) => {
-        return (<AgendaEventCard>
-          <CardMedia
-            component="img"
-            image={test}
-          />
-          <CardContent>
-            <Typography variant="h6" color="textSecondary">
-              {thatEvent.name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {thatEvent.location}<br/>
-              {thatEvent.date}
-            </Typography>
-          </CardContent>
-        </AgendaEventCard>)
-      })}
-    </div>
-  );
+	return (
+		<>
+			<AgendaDiv>
+				{getEventsOfDay().map((thatEvent: IEvent) => {
+					return (
+						<AgendaEventCard>
+							<CardMedia component="img" image={test} />
+							<CardContent>
+								<Typography variant="h6" color="textSecondary">
+									{thatEvent.name}
+								</Typography>
+								<Typography variant="body2" color="textSecondary" component="p">
+									{thatEvent.location}
+									<br />
+									{thatEvent.date}
+								</Typography>
+							</CardContent>
+						</AgendaEventCard>
+					);
+				})}
+			</AgendaDiv>
+			<Fab color="primary" aria-label="add">
+				{/* <Add /> */}
+			</Fab>
+		</>
+	);
 }
 
 export default AgendaPage;

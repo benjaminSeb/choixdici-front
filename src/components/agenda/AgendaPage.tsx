@@ -4,6 +4,13 @@ import { getEventsOfDay, IEvent } from "utils/EventUtil";
 import test from "images/test.png";
 import { styled } from "@mui/system";
 import { useQuery } from "react-query";
+import {
+	GetAllEventForStructDto,
+	GetAllEventForStructResponseDto,
+	getAllEventForStructRoute,
+	HttpMethod,
+	queryHeader,
+} from "utils/BackApi";
 
 interface IAgendaPageProps {
 	pageProps: {
@@ -24,19 +31,15 @@ const AgendaEventCard = styled(Card)({
 });
 
 function AgendaPage(props: IAgendaPageProps) {
-	const bodyData = { structure: "struct1" };
-	const body: FormData = new FormData();
-	body.append("structure", "struct1");
-	const { data } = useQuery("allEventFortStruct", () =>
-		fetch("https://choixdici-backend.herokuapp.com/event/getAllForStruct", {
-			headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "*",
-				"Access-Control-Allow-Headers": "Content-Type",
-			},
-			method: "POST",
-			body: JSON.stringify(bodyData),
-		}).then((res) => res.json())
+	const bodyData: GetAllEventForStructDto = { structure: "struct1" };
+	const { data } = useQuery<GetAllEventForStructResponseDto[]>(
+		getAllEventForStructRoute,
+		() =>
+			fetch(getAllEventForStructRoute, {
+				headers: queryHeader,
+				method: HttpMethod.POST,
+				body: JSON.stringify(bodyData),
+			}).then((res) => res.json())
 	);
 	console.log(data);
 
